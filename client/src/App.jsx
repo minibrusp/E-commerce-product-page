@@ -1,29 +1,20 @@
-import styled from 'styled-components';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import GlobalStyles from './styles/GlobalStyles';
-
-const StyledApp = styled.div`
-  width: 100%;
-  text-align: center;
-  background-color: tomato;
-`;
-
-const H1 = styled.h1`
-  font-size: 1.4rem;
-  padding: 1rem;
-  text-align: center;
-  color: blueviolet;
-  text-transform: uppercase;
-  letter-spacing: 1rem;
-  font-weight: bold;
-`;
+import Home from './pages/Home';
+import AppLayout from './ui/AppLayout';
 
 function App() {
   return (
     <>
       <GlobalStyles />
-      <StyledApp>
-        <H1>Hello There </H1>
-      </StyledApp>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<AppLayout />}>
+            <Route index element={<Home />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
