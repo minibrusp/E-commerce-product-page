@@ -5,6 +5,7 @@ export const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 20px 1.5rem 25px 1.5rem;
+  background-color: white;
 `;
 
 export const HeaderCol = styled.div`

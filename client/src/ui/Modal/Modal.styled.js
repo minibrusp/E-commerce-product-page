@@ -1,4 +1,10 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
+
+const SlideLeft = keyframes`
+  to {
+    transform: translateX(0);
+  }
+`;
 
 const overlayvariations = {
   primary: css``,
@@ -17,6 +23,8 @@ const modalstylevariations = {
     padding: 95px 25px 24px 25px;
     min-height: 100vh;
     min-width: 250px;
+    transform: translateX(-100%);
+    animation: ${SlideLeft} 0.3s forwards;
   `,
 };
 

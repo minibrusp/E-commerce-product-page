@@ -2,8 +2,6 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
 
-@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
-
 :root {
   --primary-orange: hsl(26, 100%, 55%);
   --primary-pale-orange: hsl(25, 100%, 94%);
@@ -30,7 +28,7 @@ html {
 }
 
 body {
-  font-family: 'Kumbh Sans', sans-serif;
+  font-family: 'Kumbh Sans';
   font-size: 1rem;
 }
 

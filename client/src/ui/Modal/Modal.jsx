@@ -1,7 +1,7 @@
 import { cloneElement, createContext, useContext, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-import PropTypes from 'prop-types';
+import PropTypes, { element } from 'prop-types';
 
 import BurgerCloseImg from '../../assets/images/icon-close.svg';
 import { useOutsideClick } from '../../hooks/useOutsideClick';
@@ -40,7 +40,7 @@ function Window({ children, name }) {
         <Button onClick={close} $btnvariation={variation}>
           <img src={BurgerCloseImg} alt='close button' />
         </Button>
-        <div>{cloneElement(children, { onCloseModal: close })}</div>
+        {cloneElement(children, { onCloseModal: close })}
       </StyledModal>
     </Overlay>,
     document.body
@@ -51,7 +51,7 @@ Modal.Open = Open;
 Modal.Window = Window;
 
 Modal.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.arrayOf(element),
   variation: PropTypes.string,
 };
 
