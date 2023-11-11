@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-export const StyledAppLayout = styled.div`
+export const StyledAppLayout = styled.main`
   min-height: 100vh;
 `;
 
-export const Main = styled.main``;
+export const Section = styled.section``;

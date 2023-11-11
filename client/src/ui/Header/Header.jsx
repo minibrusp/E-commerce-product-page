@@ -6,9 +6,7 @@ import Modal from '../Modal/Modal';
 import Menus from '../Menus/Menus';
 import CartButtonIcon from '../../features/Cart/CartButtonIcon';
 import Cart from '../../features/Cart/Cart/Cart';
-import MenuIcon from '../MenuIcon/MenuIcon';
-
-import AvatarImg from '../../assets/images/image-avatar.png';
+import Avatar from '../Avatar';
 
 export default function Header() {
   return (
@@ -34,14 +32,15 @@ export default function Header() {
               <Cart />
             </Menus.Item>
           </Menus.Menu>
-          <Menus.Menu>
+          {/* <Menus.Menu>
             <Menus.Toggle opens='profile'>
               <MenuIcon src={AvatarImg} alt='avatar' variant='avatar' />
             </Menus.Toggle>
             <Menus.Item name='profile'>
               <div>Login</div>
             </Menus.Item>
-          </Menus.Menu>
+          </Menus.Menu> */}
+          <Avatar />
         </Menus>
       </HeaderCol>
     </StyledHeader>

@@ -14,7 +14,8 @@
 
   1. Menu / Shoe(Since only one)
   2. Cart
-  3. Lightbox
+  3. Gallery
+  4. Lightbox
 
 - Necessary Pages
   1. Homepage (in the design it is a 1 pager app)
@@ -25,13 +26,15 @@
 
   1. Menu / Shoe(Since only one)
   2. Cart
-  3. Lightbox
+  3. Gallery
+  4. Lightbox
 
 - Types of state
 
   1. Menu / Shoe -> Global UI state
   2. Cart -> Global UI State
   3. LightBox -> Global UI State
+  4. Gallery -> Global UI State
 
 - Technology Decisions
   - Routing - react-router-dom - so i can use useSearchParams hook

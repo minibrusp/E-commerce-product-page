@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-import { Main, StyledAppLayout } from './AppLayout.styled';
+import { Section, StyledAppLayout } from './AppLayout.styled';
 
 import Header from '../Header/Header';
 
@@ -8,9 +8,9 @@ export default function AppLayout() {
   return (
     <StyledAppLayout>
       <Header />
-      <Main>
+      <Section>
         <Outlet />
-      </Main>
+      </Section>
     </StyledAppLayout>
   );
 }

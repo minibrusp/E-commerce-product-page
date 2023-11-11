@@ -4,7 +4,7 @@ import { useOutsideClick } from '../../hooks/useOutsideClick';
 import { createPortal } from 'react-dom';
 import { Menu, StyledItem, StyledToggle } from './Menus.styled';
 
-const MenusContext = createContext();
+export const MenusContext = createContext();
 
 function Menus({ children }) {
   const [openName, setOpenName] = useState('');
@@ -39,7 +39,11 @@ function Toggle({ children, opens: opensWindowName }) {
   };
 
   return (
-    <StyledToggle onClick={handleClick} $opens={opensWindowName}>
+    <StyledToggle
+      onClick={handleClick}
+      $opens={opensWindowName}
+      $isCartOpen={openName === ''}
+    >
       {children}
     </StyledToggle>
   );
