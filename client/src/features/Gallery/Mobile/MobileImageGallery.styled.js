@@ -8,13 +8,16 @@ const blur = keyframes`
 
 export const StyledImageGallery = styled.div`
   position: relative;
-  transform: scaleY(0.8) translateY(-49px);
+  /* overflow: hidden; */
+  /* transform: scaleY(0.8) translateY(-49px); */
 `;
 
 export const StyledProductImage = styled.img`
   width: 100%;
   position: relative;
   display: block;
+  aspect-ratio: 5 / 4;
+  /* transform: scaleX(1.1) scaleY(1.2); */
   /* animation: ${blur} 1s ease; */
 `;
 

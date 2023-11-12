@@ -21,12 +21,37 @@ export const svgVariant = {
     height: 24px;
     width: 24px;
   `,
+  gallery: css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  `,
+  addCart: css`
+    svg {
+      fill: var(--neutral-white);
+    }
+
+    &:hover {
+      svg {
+        fill: var(--neutral-white);
+      }
+    }
+  `,
 };
 
 export const imgVariant = {
   avatar: css`
     height: 24px;
     width: 24px;
+  `,
+  gallery: css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
   `,
 };
 

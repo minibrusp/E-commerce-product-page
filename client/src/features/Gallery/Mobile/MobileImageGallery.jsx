@@ -6,12 +6,13 @@ import {
   StyledProductImage,
 } from './MobileImageGallery.styled';
 
+import Button from '../../../ui/Button/Button';
+
 import PrevNavSvg from '../../../assets/images/icon-previous.svg';
 import NextNavSvg from '../../../assets/images/icon-next.svg';
 import ProductImage1 from '../../../assets/images/image-product-1.jpg';
 import ProductImage2 from '../../../assets/images/image-product-2.jpg';
 import ProductImage3 from '../../../assets/images/image-product-3.jpg';
-import Button from '../../../ui/Button/Button';
 
 const productImage = [ProductImage1, ProductImage2, ProductImage3];
 const MAX_IMAGES = productImage.length - 1;
@@ -52,7 +53,7 @@ export default function MobileImageGallery() {
       <StyledGalleryNavContainer>
         <Button
           icon={PrevNavSvg}
-          as='svg'
+          as='image'
           variant='gallery'
           title='previous image'
           name='previous'
@@ -60,7 +61,7 @@ export default function MobileImageGallery() {
         />
         <Button
           icon={NextNavSvg}
-          as='svg'
+          as='image'
           variant='gallery'
           title='next image'
           name='next'

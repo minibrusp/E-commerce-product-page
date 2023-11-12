@@ -11,7 +11,7 @@ function Button({
   name,
   onClick: clickHandler,
 }) {
-  if (variant === 'gallery')
+  if (variant === 'gallery' || variant === 'cartQuantity')
     return (
       <StyledButton
         $variant={variant}
@@ -19,7 +19,7 @@ function Button({
         name={name}
         onClick={clickHandler}
       >
-        <MenuIcon as='svg' src={icon} $variant={variant} />
+        <MenuIcon as='image' src={icon} $variant={variant} />
       </StyledButton>
     );
 
@@ -31,7 +31,13 @@ function Button({
       onClick={clickHandler}
     >
       {icon && (
-        <MenuIcon as='svg' src={icon} alt={alt} onClick={clickHandler} />
+        <MenuIcon
+          as='svg'
+          src={icon}
+          alt={alt}
+          onClick={clickHandler}
+          $variant={variant}
+        />
       )}
       {text && <span>{text}</span>}
     </StyledButton>

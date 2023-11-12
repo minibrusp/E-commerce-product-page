@@ -12,7 +12,7 @@
 
 - Feature Categories
 
-  1. Menu / Shoe(Since only one)
+  1. Product
   2. Cart
   3. Gallery
   4. Lightbox
@@ -24,14 +24,14 @@
 
 - Feature Categories
 
-  1. Menu / Shoe(Since only one)
+  1. Product
   2. Cart
   3. Gallery
   4. Lightbox
 
 - Types of state
 
-  1. Menu / Shoe -> Global UI state
+  1. Product -> Global UI state
   2. Cart -> Global UI State
   3. LightBox -> Global UI State
   4. Gallery -> Global UI State
