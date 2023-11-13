@@ -19,13 +19,13 @@ const initialState = {
       discount: 50,
       price: 250,
       images: {
+        photos: [ProductImage1, ProductImage2, ProductImage3, ProductImage4],
         thumbnails: [
           ImageThumbnail1,
           ImageThumbnail2,
           ImageThumbnail3,
           ImageThumbnail4,
         ],
-        photos: [ProductImage1, ProductImage2, ProductImage3, ProductImage4],
       },
     },
   ],

@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { useState } from 'react';
 
 import Button from '../../../ui/Button/Button';
@@ -11,7 +13,7 @@ import {
   StyledQuantityNav,
 } from './AddProduct.styled';
 
-export default function AddProduct() {
+export default function AddProduct({ addToCart }) {
   const [quantity, setQuantity] = useState(0);
 
   const clickQuantityHandler = (e) => {
@@ -28,7 +30,10 @@ export default function AddProduct() {
     }
   };
 
-  const clickAddCart = () => console.log(`Cart Submit quantity = ${quantity}`);
+  const clickAddCart = () => {
+    if (!quantity) return;
+    addToCart(quantity);
+  };
 
   return (
     <StyledAddProduct>
@@ -60,3 +65,7 @@ export default function AddProduct() {
     </StyledAddProduct>
   );
 }
+
+AddProduct.propTypes = {
+  addToCart: PropTypes.func,
+};

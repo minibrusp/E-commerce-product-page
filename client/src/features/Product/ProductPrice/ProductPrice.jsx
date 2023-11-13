@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import PropTypes from 'prop-types';
 import { formatPrice } from '../../../utils/helpers';
 import {
@@ -8,7 +9,11 @@ import {
   StyledProductPrice,
 } from './ProductPrice.styled';
 
-export default function ProductPrice({ price, discount, originalPrice }) {
+const ProductPrice = memo(function MainProductPrice({
+  price,
+  discount,
+  originalPrice,
+}) {
   return (
     <StyledProductPrice>
       <StyledColumn>
@@ -22,7 +27,7 @@ export default function ProductPrice({ price, discount, originalPrice }) {
       </StyledColumn>
     </StyledProductPrice>
   );
-}
+});
 ProductPrice.propTypes = {
   price: PropTypes.number,
   discount: PropTypes.number,
@@ -30,7 +35,9 @@ ProductPrice.propTypes = {
 };
 
 ProductPrice.defaultProps = {
-  price: 125,
-  discount: 50,
-  originalPrice: 250,
+  price: 0,
+  discount: 0,
+  originalPrice: 0,
 };
+
+export default ProductPrice;

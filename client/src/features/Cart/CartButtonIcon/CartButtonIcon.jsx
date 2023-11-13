@@ -5,12 +5,13 @@ import MenuIcon from '../../../ui/MenuIcon/MenuIcon';
 import { StyledCartButtonIcon, StyledCounter } from './CartButtonIcon.styled';
 import { MenusContext } from '../../../ui/Menus/Menus';
 import { useSelector } from 'react-redux';
+import { calculateTotalQuantity } from '../../../utils/helpers';
 
 export default function CartButtonIcon() {
   const { cart } = useSelector((store) => store.cart);
   const { openName } = useContext(MenusContext);
   const count = useMemo(() => {
-    return cart.length;
+    return cart.reduce(calculateTotalQuantity, 0);
   }, [cart]);
   return (
     <StyledCartButtonIcon>

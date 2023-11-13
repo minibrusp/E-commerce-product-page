@@ -16,7 +16,8 @@ export const StyledProductImage = styled.img`
   width: 100%;
   position: relative;
   display: block;
-  aspect-ratio: 5 / 4;
+  aspect-ratio: 5/4.19;
+  /* aspect-ratio: 5 / 4; */
   /* transform: scaleX(1.1) scaleY(1.2); */
   /* animation: ${blur} 1s ease; */
 `;

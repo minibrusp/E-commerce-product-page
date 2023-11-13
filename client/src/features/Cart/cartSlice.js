@@ -1,29 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import ImageThumbnail1 from '../../assets/images/image-product-1-thumbnail.jpg';
-import ImageThumbnail3 from '../../assets/images/image-product-2-thumbnail.jpg';
+import { calculateTotal } from '../../utils/helpers';
 
 const initialState = {
-  cart: [
-    {
-      id: 1,
-      name: 'Fall Limited Edition Sneakers',
-      discount: 50,
-      price: 125,
-      image: ImageThumbnail1,
-      quantity: 3,
-      totalPrice: 375,
-    },
-    {
-      id: 2,
-      name: 'Fall Limited Edition Sneakers',
-      discount: 50,
-      price: 125,
-      image: ImageThumbnail3,
-      quantity: 1,
-      totalPrice: 375,
-    },
-  ],
+  cart: [],
+  total: 0,
 };
 
 // cart/addCart
@@ -32,27 +13,54 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addCartItem: {
-      prepare(id, name, discount, price, image, quantity, totalPrice) {
-        return {
-          payload: { id, name, discount, price, image, quantity, totalPrice },
-        };
-      },
-      reducer(state, action) {
+    addCartItem(state, action) {
+      // for empty cart
+      if (state.cart.length === 0) {
         state.cart.push(action.payload);
-      },
+        state.total = action.payload.totalPrice;
+        return;
+      }
+
+      // find if product exist if exist store in the var
+      const foundCartProduct = state.cart.find(
+        (product) => product.id === action.payload.id
+      );
+
+      // if product doesnt exist push the new Product.
+      // adds the cart total + totalPrice of new Product
+      // exits the function
+      if (!foundCartProduct) {
+        state.cart.push(action.payload);
+        state.total = state.total + action.payload.totalPrice;
+        return;
+      }
+
+      // if it exist
+      // adds the payload quantity to the found Product's quantity
+      // recalculates found Product's total price
+      // calculate the total price including found Product's
+      foundCartProduct.quantity =
+        foundCartProduct.quantity + action.payload.quantity;
+      foundCartProduct.totalPrice =
+        foundCartProduct.quantity * foundCartProduct.price;
+      state.total = state.cart.reduce(calculateTotal, 0);
     },
+
     deleteCartItem(state, action) {
-      const isMoreThanOne = state.cart.find((cartProduct) => {
-        return cartProduct.quantity > 1 ? true : false;
-      });
-
-      console.log('it is ', isMoreThanOne);
-
       const filteredCartItem = state.cart.filter((cartProduct) => {
-        return cartProduct.id !== action.payload;
+        // includes the cart item in the filter if it is not same id
+        if (cartProduct.id !== action.payload) return true;
+        // excludes/deletes the cart item if quantity is below 2 / or 1
+        if (cartProduct.quantity < 2) return false;
+        // subtracts 1 count on quantity
+        cartProduct.quantity = cartProduct.quantity - 1;
+        // recalculates the totalPrice
+        cartProduct.totalPrice = cartProduct.quantity * cartProduct.price;
+        // include the cart item
+        return true;
       });
       state.cart = filteredCartItem;
+      state.total = state.cart.reduce(calculateTotal, 0);
     },
   },
 });

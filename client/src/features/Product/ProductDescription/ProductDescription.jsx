@@ -1,3 +1,6 @@
+import { memo } from 'react';
+import PropTypes from 'prop-types';
+
 import {
   StyledCompany,
   StyledDescription,
@@ -5,16 +8,24 @@ import {
   StyledProductDescription,
 } from './ProductDescription.styled';
 
-export default function ProductDescription() {
+const ProductDescription = memo(function MainProductDescription({
+  company,
+  name,
+  description,
+}) {
   return (
     <StyledProductDescription>
-      <StyledCompany>Sneaker Company</StyledCompany>
-      <StyledName>Fall Limited Edition Sneakers</StyledName>
-      <StyledDescription>
-        These low-profile sneakers are your perfect casual wear companion.
-        Featuring a durable rubber outer sole, they&apos;ll withstand everything
-        the weather can offer.
-      </StyledDescription>
+      <StyledCompany>{company}</StyledCompany>
+      <StyledName>{name}</StyledName>
+      <StyledDescription>{description}</StyledDescription>
     </StyledProductDescription>
   );
-}
+});
+
+ProductDescription.propTypes = {
+  company: PropTypes.string,
+  name: PropTypes.string,
+  description: PropTypes.string,
+};
+
+export default ProductDescription;

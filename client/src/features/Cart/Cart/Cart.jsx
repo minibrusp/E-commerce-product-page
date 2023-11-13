@@ -11,9 +11,7 @@ import Button from '../../../ui/Button/Button';
 import CartItem from '../CartItem/CartItem';
 
 function Cart() {
-  // const cart = [1111111, '123213213'];
   const { cart } = useSelector((store) => store.cart);
-  // const cart = [];
 
   return (
     <StyledCart>

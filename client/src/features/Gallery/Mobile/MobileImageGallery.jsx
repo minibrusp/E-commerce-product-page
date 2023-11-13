@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useSearchParams } from 'react-router-dom';
 
 import {
@@ -10,17 +11,19 @@ import Button from '../../../ui/Button/Button';
 
 import PrevNavSvg from '../../../assets/images/icon-previous.svg';
 import NextNavSvg from '../../../assets/images/icon-next.svg';
-import ProductImage1 from '../../../assets/images/image-product-1.jpg';
-import ProductImage2 from '../../../assets/images/image-product-2.jpg';
-import ProductImage3 from '../../../assets/images/image-product-3.jpg';
+import { useMemo } from 'react';
 
-const productImage = [ProductImage1, ProductImage2, ProductImage3];
-const MAX_IMAGES = productImage.length - 1;
+// const productImage = [ProductImage1, ProductImage2, ProductImage3];
 
-export default function MobileImageGallery() {
+export default function MobileImageGallery({ images }) {
   const [searchParams, setSearchParams] = useSearchParams();
-
   const selected = Number(searchParams.get('selected')) || 0;
+
+  const { photos } = images;
+
+  const MAX_IMAGES = useMemo(() => {
+    return photos.length - 1 || 0;
+  }, [photos]);
 
   const handleClick = (e) => {
     switch (e.target.closest('button').name) {
@@ -49,7 +52,7 @@ export default function MobileImageGallery() {
 
   return (
     <StyledImageGallery>
-      <StyledProductImage src={productImage[selected]} alt='Product Image' />
+      <StyledProductImage src={photos[selected]} alt='Product Image' />
       <StyledGalleryNavContainer>
         <Button
           icon={PrevNavSvg}
@@ -71,3 +74,7 @@ export default function MobileImageGallery() {
     </StyledImageGallery>
   );
 }
+
+MobileImageGallery.propTypes = {
+  images: PropTypes.objectOf(PropTypes.array),
+};
