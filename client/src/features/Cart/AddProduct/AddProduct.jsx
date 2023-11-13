@@ -1,45 +1,15 @@
-import styled from 'styled-components';
+import { useState } from 'react';
+
 import Button from '../../../ui/Button/Button';
 
 import IconMinus from '../../../assets/images/icon-minus.svg';
 import IconPlus from '../../../assets/images/icon-plus.svg';
 import IconCart from '../../../assets/images/icon-cart.svg';
-import { useState } from 'react';
-
-const StyledAddProduct = styled.div`
-  padding: 1.3125rem 1.5625rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 1rem;
-`;
-
-const StyledQuantityNav = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-
-  background-color: var(--neutral-light-grayish-blue);
-  border-radius: 7px;
-  padding: 7.5px;
-`;
-
-const StyledQuantity = styled.span`
-  min-width: 40px;
-  min-height: 40px;
-  max-width: 40px;
-  padding: 10px 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-weight: 700;
-  text-align: center;
-  border: transparent;
-  background-color: transparent;
-`;
+import {
+  StyledAddProduct,
+  StyledQuantity,
+  StyledQuantityNav,
+} from './AddProduct.styled';
 
 export default function AddProduct() {
   const [quantity, setQuantity] = useState(0);

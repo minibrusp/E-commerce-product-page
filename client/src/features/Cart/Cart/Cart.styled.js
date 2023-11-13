@@ -10,7 +10,7 @@ export const StyledCart = styled.aside`
   width: 100%;
   max-width: 360px;
   box-shadow: var(--shadow-md);
-  padding-top: 1.2rem;
+  padding: 1.2rem 0;
 
   display: flex;
   flex-direction: column;
@@ -31,31 +31,6 @@ export const StyledCartItems = styled.ul`
   list-style-type: none;
   padding: 0 1.5rem;
   min-height: 190px;
-`;
-export const StyledCartItem = styled.li`
-  padding: 1.563rem 0;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 17px;
-`;
-
-export const StyledCartItemImg = styled.img`
-  width: 50px;
-  height: 50px;
-`;
-
-export const StyledDescription = styled.div`
-  line-height: 1.6;
-`;
-
-export const StyledTitle = styled.p`
-  color: var(--neutral-dark-grayish-blue);
-`;
-
-export const StyledPrice = styled.b`
-  color: var(--neutral-black);
 `;
 
 export const StyledCartEmptyText = styled.li`
