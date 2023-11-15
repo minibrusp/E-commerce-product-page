@@ -7,7 +7,11 @@ import {
   StyledRadio,
 } from './ImageThumbnail.styled';
 
-export default function ImageThumbnails({ thumbnails: images, selected }) {
+export default function ImageThumbnails({
+  thumbnails: images,
+  selected,
+  variation,
+}) {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const handleSelection = (e) => {
@@ -16,7 +20,7 @@ export default function ImageThumbnails({ thumbnails: images, selected }) {
   };
 
   return (
-    <StyledImageThumbnails>
+    <StyledImageThumbnails $variation={variation}>
       {images?.map((image, index) => (
         <StyledImageContainer
           key={`thumb-${index}`}
@@ -40,4 +44,9 @@ export default function ImageThumbnails({ thumbnails: images, selected }) {
 ImageThumbnails.propTypes = {
   thumbnails: PropTypes.arrayOf(PropTypes.string),
   selected: PropTypes.number,
+  variation: PropTypes.string,
+};
+
+ImageThumbnails.defaultProps = {
+  variation: 'Default',
 };

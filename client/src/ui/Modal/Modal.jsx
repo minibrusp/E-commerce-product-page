@@ -6,6 +6,7 @@ import PropTypes, { element } from 'prop-types';
 import BurgerCloseImg from '../../assets/images/icon-close.svg';
 import { useOutsideClick } from '../../hooks/useOutsideClick';
 import { Button, Overlay, StyledModal } from './Modal.styled';
+import MenuIcon from '../MenuIcon';
 
 const ModalContext = createContext();
 
@@ -38,9 +39,14 @@ function Window({ children, name }) {
     <Overlay $overlayvariations={variation}>
       <StyledModal ref={ref} $modalstylevariations={variation}>
         <Button onClick={close} $btnvariation={variation}>
-          <img src={BurgerCloseImg} alt='close button' />
+          <MenuIcon
+            as='svg'
+            src={BurgerCloseImg}
+            alt='close button'
+            variant={variation}
+          />
         </Button>
-        {cloneElement(children, { onCloseModal: close })}
+        {cloneElement(children, { onCloseModal: close, variation: variation })}
       </StyledModal>
     </Overlay>,
     document.body

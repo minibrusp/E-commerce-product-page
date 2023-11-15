@@ -26,6 +26,20 @@ const modalstylevariations = {
     transform: translateX(-100%);
     animation: ${SlideLeft} 0.3s forwards;
   `,
+  lightbox: css`
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    box-shadow: none;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+
+    padding: 0;
+  `,
 };
 
 const btnvariation = {
@@ -38,6 +52,30 @@ const btnvariation = {
   burgerNav: css`
     top: 25px;
     left: 25px;
+
+    svg {
+      fill: var(--neutral-dark-grayish-blue);
+    }
+  `,
+  lightbox: css`
+    transform: unset;
+    padding-bottom: 1.5rem;
+    position: relative;
+    top: 0;
+    right: 0;
+    z-index: 5;
+
+    svg {
+      transform: scale(1.43);
+      fill: var(--neutral-white);
+      transition: fill 0.5s ease;
+    }
+
+    &:hover {
+      svg {
+        fill: var(--primary-orange);
+      }
+    }
   `,
 };
 
@@ -73,8 +111,4 @@ export const Button = styled.button`
   cursor: pointer;
 
   ${(props) => btnvariation[props.$btnvariation]}
-
-  &:hover {
-    background-color: lightgrey;
-  }
 `;

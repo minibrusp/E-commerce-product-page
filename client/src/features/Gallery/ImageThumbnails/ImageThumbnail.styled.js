@@ -1,5 +1,17 @@
 import styled, { css } from 'styled-components';
 
+const variationImageThumbnails = {
+  lightbox: css`
+    @media screen and (min-width: 1024px) {
+      justify-content: center;
+      gap: 1.7rem;
+
+      position: relative;
+      z-index: 5;
+    }
+  `,
+};
+
 export const StyledImageThumbnails = styled.div`
   display: none;
   @media screen and (min-width: 1024px) {
@@ -9,6 +21,8 @@ export const StyledImageThumbnails = styled.div`
     width: 100%;
     display: flex;
   }
+
+  ${(props) => variationImageThumbnails[props.$variation]}
 `;
 
 export const StyledImageContainer = styled.label`

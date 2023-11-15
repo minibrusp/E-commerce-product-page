@@ -72,6 +72,42 @@ export const buttonVariant = {
       transform: scaleY(0.7) scaleX(0.95);
     }
   `,
+  lightbox: css`
+    min-width: 56px;
+    min-height: 56px;
+    padding: 10px 12px;
+    border-radius: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--neutral-white);
+
+    img {
+      /* transform: scale(0.7); */
+      transform: scaleY(0.7) scaleX(0.95);
+    }
+
+    @media screen and (min-width: 1024px) {
+      min-height: 56px;
+      min-width: 56px;
+
+      svg {
+        path {
+          transition: stroke 0.5s ease;
+        }
+      }
+
+      &:hover {
+        svg {
+          path {
+            stroke: var(--primary-orange);
+          }
+        }
+      }
+    }
+  `,
   cartQuantity: css`
     min-width: 40px;
     min-height: 40px;
