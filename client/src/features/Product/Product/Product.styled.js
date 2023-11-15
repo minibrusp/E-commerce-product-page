@@ -16,6 +16,10 @@ export const StyledProduct = styled.div`
       margin: 4.375rem auto;
     }
   }
+
+  @media screen and (min-width: 1280px) {
+    gap: 7.8125rem;
+  }
 `;
 
 export const StyledProductDetails = styled.div`
@@ -23,7 +27,8 @@ export const StyledProductDetails = styled.div`
   margin: 1.3125rem auto;
 
   @media screen and (min-width: 640px) {
-    max-width: 500px;
+    max-width: 445px;
+    padding: 0;
   }
 
   @media screen and (min-width: 1024px) {

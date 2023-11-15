@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useSearchParams } from 'react-router-dom';
 import { useMemo } from 'react';
 
-import { StyledImageGallery } from './MobileImageGallery.styled';
+import { StyledImageGallery } from './ImageGallery.styled';
 
 import ImageThumbnail from '../ImageThumbnails/index';
 import Modal from '../../../ui/Modal/Modal';
@@ -10,7 +10,7 @@ import LightBox from '../LightBox';
 import ProductImage from '../ProductImage';
 import ImageGalleryNav from '../ImageGalleryNav';
 
-export default function MobileImageGallery({ images }) {
+export default function ImageGallery({ images }) {
   const [searchParams, setSearchParams] = useSearchParams();
   const selected = Number(searchParams.get('selected')) || 0;
 
@@ -67,6 +67,6 @@ export default function MobileImageGallery({ images }) {
   );
 }
 
-MobileImageGallery.propTypes = {
+ImageGallery.propTypes = {
   images: PropTypes.objectOf(PropTypes.array),
 };

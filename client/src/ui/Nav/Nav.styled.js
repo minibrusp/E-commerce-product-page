@@ -38,7 +38,8 @@ export const StyledNavLink = styled.a`
     &::after {
       content: '';
       position: absolute;
-      bottom: -60px;
+      /* bottom: -60px; */
+      bottom: -46px;
       left: 0;
       background-color: var(--primary-orange);
       width: 100%;

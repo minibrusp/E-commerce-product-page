@@ -6,7 +6,7 @@ export const StyledImageGallery = styled.div`
   /* transform: scaleY(0.8) translateY(-49px); */
 
   @media screen and (min-width: 640px) {
-    max-width: 500px;
+    max-width: 445px;
     margin: 0 auto;
   }
 

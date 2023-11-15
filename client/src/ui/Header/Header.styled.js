@@ -9,10 +9,15 @@ export const StyledHeader = styled.header`
   width: 100%;
 
   @media screen and (min-width: 1024px) {
-    padding: 41.5px 0 44.5px 0;
+    /* padding: 41.5px 0 44.5px 0; */
+    padding: 30.5px 0;
     margin: 0 auto;
     max-width: 95%;
     border-bottom: 1px solid var(--neutral-grayish-blue);
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 73rem;
   }
 `;
 

@@ -10,7 +10,11 @@ export const StyledAddProduct = styled.div`
   margin: 1.3125rem auto;
 
   @media screen and (min-width: 640px) {
-    max-width: 500px;
+    max-width: 445px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    flex-direction: row;
   }
 `;
 
@@ -23,6 +27,14 @@ export const StyledQuantityNav = styled.div`
   background-color: var(--neutral-light-grayish-blue);
   border-radius: 7px;
   padding: 7.5px;
+
+  @media screen and (min-width: 640px) {
+    padding: 7.5px 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 9.8125rem;
+  }
 `;
 
 export const StyledQuantity = styled.span`

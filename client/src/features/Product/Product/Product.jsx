@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { addCartItem } from '../../Cart/cartSlice';
 
 import AddProduct from '../../Cart/AddProduct/';
-import MobileImageGallery from '../../Gallery/Mobile/';
+import ImageGallery from '../../Gallery/ImageGallery';
 import ProductDescription from '../ProductDescription/';
 import ProductPrice from '../ProductPrice/';
 
@@ -35,7 +35,7 @@ export default function Product({ product }) {
 
   return (
     <StyledProduct>
-      <MobileImageGallery images={images} />
+      <ImageGallery images={images} />
       <StyledProductDetails>
         <ProductDescription
           company={company}

@@ -25,6 +25,13 @@ export const StyledCart = styled.aside`
     transform: unset;
     right: 2.7%;
   }
+
+  @media screen and (min-width: 1280px) {
+    position: unset;
+    top: unset;
+    left: unset;
+    transform: unset;
+  }
 `;
 
 export const StyledHeading = styled.h2`

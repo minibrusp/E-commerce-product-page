@@ -26,6 +26,20 @@ export const StyledItem = styled.div`
   right: 0;
   top: 70px; */
 
-  /* right: ${(props) => props.$position.x}px; */
-  /* top: ${(props) => props.$position.y}px; */
+  /* position: fixed;
+    right: 10px;
+    top: 90.5px;
+    background-color: transparent; */
+
+  @media screen and (min-width: 1280px) {
+    width: 360px;
+    position: fixed;
+    right: ${(props) => props.$position.x - 129}px;
+    top: ${(props) => props.$position.y + 20}px;
+    background-color: transparent;
+  }
+
+  @media screen and (min-width: 1440px) {
+    right: ${(props) => props.$position.x - 174}px;
+  }
 `;
