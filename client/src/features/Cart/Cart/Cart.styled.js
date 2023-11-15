@@ -18,6 +18,13 @@ export const StyledCart = styled.aside`
   align-items: flex-start;
   gap: 1.563rem;
   text-align: left;
+
+  @media screen and (min-width: 1024px) {
+    top: 100px;
+    left: unset;
+    transform: unset;
+    right: 2.7%;
+  }
 `;
 
 export const StyledHeading = styled.h2`
@@ -31,6 +38,12 @@ export const StyledCartItems = styled.ul`
   list-style-type: none;
   padding: 0 1.5rem;
   min-height: 190px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.5rem;
 `;
 
 export const StyledCartEmptyText = styled.li`

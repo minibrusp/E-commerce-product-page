@@ -4,12 +4,12 @@ import { useDispatch } from 'react-redux';
 
 import { addCartItem } from '../../Cart/cartSlice';
 
-import AddProduct from '../../Cart/AddProduct/AddProduct';
-import MobileImageGallery from '../../Gallery/Mobile/MobileImageGallery';
-import ProductDescription from '../ProductDescription/ProductDescription';
-import ProductPrice from '../ProductPrice/ProductPrice';
+import AddProduct from '../../Cart/AddProduct/';
+import MobileImageGallery from '../../Gallery/Mobile/';
+import ProductDescription from '../ProductDescription/';
+import ProductPrice from '../ProductPrice/';
 
-import { StyledProductDetails } from './Product.styled';
+import { StyledProductDetails, StyledProduct } from './Product.styled';
 
 export default function Product({ product }) {
   const dispatch = useDispatch();
@@ -34,7 +34,7 @@ export default function Product({ product }) {
   };
 
   return (
-    <>
+    <StyledProduct>
       <MobileImageGallery images={images} />
       <StyledProductDetails>
         <ProductDescription
@@ -47,9 +47,9 @@ export default function Product({ product }) {
           discount={discount}
           originalPrice={price}
         />
+        <AddProduct addToCart={addToCart} />
       </StyledProductDetails>
-      <AddProduct addToCart={addToCart} />
-    </>
+    </StyledProduct>
   );
 }
 

@@ -1,17 +1,17 @@
-import { HeaderCol, StyledHeader } from './Header.styled';
+import { StyledHeaderCol, StyledHeader } from './Header.styled';
 import Burger from '../Burger';
 import Logo from '../Logo';
 import Nav from '../Nav';
-import Modal from '../Modal/Modal';
-import Menus from '../Menus/Menus';
+import Modal from '../Modal';
+import Menus from '../Menus';
 import CartButtonIcon from '../../features/Cart/CartButtonIcon';
-import Cart from '../../features/Cart/Cart/Cart';
+import Cart from '../../features/Cart/Cart/';
 import Avatar from '../Avatar';
 
 export default function Header() {
   return (
     <StyledHeader>
-      <HeaderCol>
+      <StyledHeaderCol>
         <Modal variation='burgerNav'>
           <Modal.Open opens='burger-menu'>
             <Burger />
@@ -21,8 +21,9 @@ export default function Header() {
           </Modal.Window>
         </Modal>
         <Logo />
-      </HeaderCol>
-      <HeaderCol>
+        <Nav.Desktop />
+      </StyledHeaderCol>
+      <StyledHeaderCol>
         <Menus>
           <Menus.Menu>
             <Menus.Toggle opens='cart'>
@@ -42,7 +43,7 @@ export default function Header() {
           </Menus.Menu> */}
           <Avatar />
         </Menus>
-      </HeaderCol>
+      </StyledHeaderCol>
     </StyledHeader>
   );
 }

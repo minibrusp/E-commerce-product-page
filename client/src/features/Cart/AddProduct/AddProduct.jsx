@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import { useState } from 'react';
 
-import Button from '../../../ui/Button/Button';
+import Button from '../../../ui/Button/';
 
 import IconMinus from '../../../assets/images/icon-minus.svg';
 import IconPlus from '../../../assets/images/icon-plus.svg';

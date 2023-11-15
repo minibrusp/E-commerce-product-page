@@ -5,6 +5,13 @@ export const StyledProductPrice = styled.p`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media screen and (min-width: 1024px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.7rem;
+  }
 `;
 
 export const StyledColumn = styled.span`

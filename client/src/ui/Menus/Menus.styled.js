@@ -12,12 +12,8 @@ export const StyledToggle = styled.button`
   border: none;
   background-color: transparent;
   cursor: pointer;
-
-  /* &:active svg,
-  &:focus-visible svg {
-    fill: green;
-  } */
 `;
+
 export const StyledItem = styled.div`
   width: 100%;
   background-color: var(--neutral-white);

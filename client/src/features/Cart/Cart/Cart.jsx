@@ -7,8 +7,8 @@ import {
   StyledHeading,
 } from './Cart.styled';
 
-import Button from '../../../ui/Button/Button';
-import CartItem from '../CartItem/CartItem';
+import Button from '../../../ui/Button/';
+import CartItem from '../CartItem/';
 
 function Cart() {
   const { cart } = useSelector((store) => store.cart);

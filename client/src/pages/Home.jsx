@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import Product from '../features/Product/Product/Product';
+import Product from '../features/Product/Product/';
 
 export default function Home() {
   const { products } = useSelector((store) => store.product);

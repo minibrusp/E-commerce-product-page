@@ -11,6 +11,7 @@ export const svgVariant = {
   `,
   cart: css`
     fill: var(--neutral-dark-grayish-blue);
+    transition: fill 0.5s ease;
 
     &:hover,
     &:active {
@@ -43,8 +44,21 @@ export const svgVariant = {
 
 export const imgVariant = {
   avatar: css`
-    height: 24px;
-    width: 24px;
+    height: 26px;
+    width: 26px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: border-color 0.5s ease;
+    border-radius: 100%;
+
+    &:hover {
+      border: 2px solid var(--primary-orange);
+    }
+
+    @media screen and (min-width: 1024px) {
+      height: 50px;
+      width: 50px;
+    }
   `,
   gallery: css`
     display: flex;

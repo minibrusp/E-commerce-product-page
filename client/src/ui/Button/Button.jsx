@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { StyledButton } from './Button.styled';
-import MenuIcon from '../MenuIcon/MenuIcon';
+import MenuIcon from '../MenuIcon/';
 
 function Button({
   text,

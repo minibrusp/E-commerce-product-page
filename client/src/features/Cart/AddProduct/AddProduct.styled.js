@@ -1,13 +1,17 @@
 import styled from 'styled-components';
 
 export const StyledAddProduct = styled.div`
-  padding: 0 1.5625rem;
+  /* padding: 0 1.5625rem; */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 1rem;
   margin: 1.3125rem auto;
+
+  @media screen and (min-width: 640px) {
+    max-width: 500px;
+  }
 `;
 
 export const StyledQuantityNav = styled.div`

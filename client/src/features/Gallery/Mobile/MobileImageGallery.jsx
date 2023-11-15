@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useSearchParams } from 'react-router-dom';
+import { useMemo } from 'react';
 
 import {
   StyledGalleryNavContainer,
@@ -7,19 +8,17 @@ import {
   StyledProductImage,
 } from './MobileImageGallery.styled';
 
-import Button from '../../../ui/Button/Button';
+import Button from '../../../ui/Button/index';
+import ImageThumbnail from '../ImageThumbnails/index';
 
 import PrevNavSvg from '../../../assets/images/icon-previous.svg';
 import NextNavSvg from '../../../assets/images/icon-next.svg';
-import { useMemo } from 'react';
-
-// const productImage = [ProductImage1, ProductImage2, ProductImage3];
 
 export default function MobileImageGallery({ images }) {
   const [searchParams, setSearchParams] = useSearchParams();
   const selected = Number(searchParams.get('selected')) || 0;
 
-  const { photos } = images;
+  const { photos, thumbnails } = images;
 
   const MAX_IMAGES = useMemo(() => {
     return photos.length - 1 || 0;
@@ -71,6 +70,7 @@ export default function MobileImageGallery({ images }) {
           onClick={handleClick}
         />
       </StyledGalleryNavContainer>
+      <ImageThumbnail thumbnails={thumbnails} selected={selected} />
     </StyledImageGallery>
   );
 }

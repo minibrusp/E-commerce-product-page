@@ -7,6 +7,7 @@ export const StyledCartItem = styled.li`
   justify-content: space-between;
   align-items: center;
   gap: 17px;
+  width: 100%;
 `;
 
 export const StyledColumn = styled.div`

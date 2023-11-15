@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 
 import { Section, StyledAppLayout } from './AppLayout.styled';
 
-import Header from '../Header/Header';
+import Header from '../Header';
 
 export default function AppLayout() {
   return (

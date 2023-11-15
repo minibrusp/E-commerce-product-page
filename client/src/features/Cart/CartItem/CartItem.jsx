@@ -10,7 +10,7 @@ import {
   StyledTotalPrice,
   StyledTitle,
 } from './CartItem.styled';
-import Button from '../../../ui/Button/Button';
+import Button from '../../../ui/Button/';
 
 import { formatPrice } from '../../../utils/helpers';
 
