@@ -1,5 +1,3 @@
-import { useSelector } from 'react-redux';
-
 import {
   StyledCart,
   StyledCartEmptyText,
@@ -9,9 +7,12 @@ import {
 
 import Button from '../../../ui/Button/';
 import CartItem from '../CartItem/';
+import useCart from '../useCart';
 
 function Cart() {
-  const { cart } = useSelector((store) => store.cart);
+  const { cart, checkoutCart } = useCart();
+
+  const checkout = async () => await checkoutCart();
 
   return (
     <StyledCart>
@@ -27,7 +28,7 @@ function Cart() {
               text='Checkout'
               variant='checkout'
               title='checkout cart'
-              onClick={() => console.log('Cart Checkout Button Clicked!!!')}
+              onClick={checkout}
             />
           </>
         ) : (

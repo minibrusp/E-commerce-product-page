@@ -15,12 +15,10 @@ import Button from '../../../ui/Button/';
 import { formatPrice } from '../../../utils/helpers';
 
 import IconDelete from '../../../assets/images/icon-delete.svg';
-
-import { deleteCartItem } from '../cartSlice';
-import { useDispatch } from 'react-redux';
+import useCart from '../useCart';
 
 export default function CartItem({ id, image, name, price, quantity }) {
-  const dispatch = useDispatch();
+  const { deleteCart } = useCart();
 
   const totalPrice = useMemo(() => {
     const calculatedPrice = quantity > 1 ? price * quantity : price;
@@ -29,7 +27,7 @@ export default function CartItem({ id, image, name, price, quantity }) {
 
   const handleDelete = (e) => {
     e.stopPropagation();
-    dispatch(deleteCartItem(id));
+    deleteCart(id);
   };
 
   return (
@@ -63,7 +61,7 @@ export default function CartItem({ id, image, name, price, quantity }) {
 }
 
 CartItem.propTypes = {
-  id: PropTypes.number,
+  id: PropTypes.string,
   image: PropTypes.string,
   name: PropTypes.string,
   price: PropTypes.number,

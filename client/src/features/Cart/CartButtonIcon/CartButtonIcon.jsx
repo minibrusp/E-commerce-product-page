@@ -1,18 +1,16 @@
-import { useContext, useMemo } from 'react';
+import { useContext } from 'react';
 import CartIcon from '../../../assets/images/icon-cart.svg';
 
 import MenuIcon from '../../../ui/MenuIcon/MenuIcon';
 import { StyledCartButtonIcon, StyledCounter } from './CartButtonIcon.styled';
 import { MenusContext } from '../../../ui/Menus/Menus';
-import { useSelector } from 'react-redux';
-import { calculateTotalQuantity } from '../../../utils/helpers';
+
+import useCart from '../useCart';
 
 export default function CartButtonIcon() {
-  const { cart } = useSelector((store) => store.cart);
+  const { count } = useCart();
   const { openName } = useContext(MenusContext);
-  const count = useMemo(() => {
-    return cart.reduce(calculateTotalQuantity, 0);
-  }, [cart]);
+
   return (
     <StyledCartButtonIcon>
       {count > 0 && <StyledCounter>{count}</StyledCounter>}

@@ -11,7 +11,7 @@ import ProductImage4 from '../../assets/images/image-product-4.jpg';
 const initialState = {
   products: [
     {
-      id: 1,
+      id: 'price_1ODAwFHrB0mUvXYTbiDVm7VN',
       name: 'Fall Limited Edition Sneakers',
       company: 'Sneaker Company',
       description:
@@ -34,7 +34,7 @@ const initialState = {
 const productSlice = createSlice({
   name: 'product',
   initialState,
-  deducers: {
+  reducers: {
     createProduct: {
       prepare(name, company, description, discount, price, images) {
         return {
