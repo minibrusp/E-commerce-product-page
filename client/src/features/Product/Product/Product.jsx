@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import { addCartItem } from '../../Cart/cartSlice';
 
-import AddProduct from '../../Cart/AddProduct/';
+import AddToCart from '../../Cart/AddToCart';
 import ImageGallery from '../../Gallery/ImageGallery';
 import ProductDescription from '../ProductDescription/';
 import ProductPrice from '../ProductPrice/';
@@ -47,7 +47,7 @@ export default function Product({ product }) {
           discount={discount}
           originalPrice={price}
         />
-        <AddProduct addToCart={addToCart} />
+        <AddToCart addToCart={addToCart} />
       </StyledProductDetails>
     </StyledProduct>
   );

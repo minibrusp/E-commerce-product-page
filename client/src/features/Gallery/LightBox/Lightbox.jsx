@@ -1,18 +1,10 @@
 import PropTypes from 'prop-types';
+
 import ImageThumbnails from '../ImageThumbnails';
 import ProductImage from '../ProductImage';
-import styled from 'styled-components';
 import ImageGalleryNav from '../ImageGalleryNav';
 
-const StyledRow = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 2rem;
-`;
-
-const StyledProductImage = styled.div``;
+import { StyledProductImage, StyledRow } from './Lightbox.styled';
 
 export default function Lightbox({
   selected,

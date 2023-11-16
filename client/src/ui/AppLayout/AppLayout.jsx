@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { Section, StyledAppLayout } from './AppLayout.styled';
 
 import Header from '../Header';
+import Footer from '../Footer/Footer';
 
 export default function AppLayout() {
   return (
@@ -11,6 +12,7 @@ export default function AppLayout() {
       <Section>
         <Outlet />
       </Section>
+      <Footer />
     </StyledAppLayout>
   );
 }

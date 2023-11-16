@@ -121,5 +121,9 @@ export const StyledButton = styled.button`
   cursor: pointer;
   border: none;
 
+  &:active {
+    transform: scale(0.9);
+  }
+
   ${(props) => buttonVariant[props.$variant]}
 `;

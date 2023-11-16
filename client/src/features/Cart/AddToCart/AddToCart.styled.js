@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledAddProduct = styled.div`
+export const StyledAddToCart = styled.div`
   /* padding: 0 1.5625rem; */
   display: flex;
   justify-content: center;
@@ -10,6 +10,14 @@ export const StyledAddProduct = styled.div`
   margin: 1.3125rem auto;
 
   @media screen and (min-width: 640px) {
+    max-width: 445px;
+  }
+
+  @media screen and (min-width: 768px) {
+    max-width: 800px;
+  }
+
+  @media screen and (min-width: 1024px) {
     max-width: 445px;
   }
 

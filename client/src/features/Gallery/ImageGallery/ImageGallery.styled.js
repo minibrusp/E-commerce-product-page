@@ -10,7 +10,12 @@ export const StyledImageGallery = styled.div`
     margin: 0 auto;
   }
 
+  @media screen and (min-width: 768px) {
+    max-width: 800px;
+  }
+
   @media screen and (min-width: 1024px) {
+    max-width: 445px;
     display: flex;
     justify-content: center;
     align-items: center;

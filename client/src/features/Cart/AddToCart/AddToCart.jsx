@@ -2,18 +2,18 @@ import PropTypes from 'prop-types';
 
 import { useState } from 'react';
 
-import Button from '../../../ui/Button/';
+import Button from '../../../ui/Button';
 
 import IconMinus from '../../../assets/images/icon-minus.svg';
 import IconPlus from '../../../assets/images/icon-plus.svg';
 import IconCart from '../../../assets/images/icon-cart.svg';
 import {
-  StyledAddProduct,
+  StyledAddToCart,
   StyledQuantity,
   StyledQuantityNav,
-} from './AddProduct.styled';
+} from './AddToCart.styled';
 
-export default function AddProduct({ addToCart }) {
+export default function AddToCart({ addToCart }) {
   const [quantity, setQuantity] = useState(0);
 
   const clickQuantityHandler = (e) => {
@@ -33,10 +33,11 @@ export default function AddProduct({ addToCart }) {
   const clickAddCart = () => {
     if (!quantity) return;
     addToCart(quantity);
+    setQuantity(0);
   };
 
   return (
-    <StyledAddProduct>
+    <StyledAddToCart>
       <StyledQuantityNav>
         <Button
           as='image'
@@ -62,10 +63,10 @@ export default function AddProduct({ addToCart }) {
         icon={IconCart}
         onClick={clickAddCart}
       />
-    </StyledAddProduct>
+    </StyledAddToCart>
   );
 }
 
-AddProduct.propTypes = {
+AddToCart.propTypes = {
   addToCart: PropTypes.func,
 };

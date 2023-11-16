@@ -2,9 +2,24 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { calculateTotal } from '../../utils/helpers';
 
+const setCartLocalStorage = (cartItems, cartTotalAmount) => {
+  localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  localStorage.setItem('cartTotalAmount', JSON.stringify(cartTotalAmount));
+};
+
+const cartItems =
+  localStorage.getItem('cartItems') !== null
+    ? JSON.parse(localStorage.getItem('cartItems'))
+    : [];
+
+const cartTotalAmount =
+  localStorage.getItem('cartTotalAmount') !== null
+    ? JSON.parse(localStorage.getItem('cartTotalAmount'))
+    : 0;
+
 const initialState = {
-  cart: [],
-  total: 0,
+  cart: cartItems,
+  total: cartTotalAmount,
 };
 
 // cart/addCart
@@ -18,6 +33,9 @@ const cartSlice = createSlice({
       if (state.cart.length === 0) {
         state.cart.push(action.payload);
         state.total = action.payload.totalPrice;
+
+        // sets localstorage of current cart items and cart total amount
+        setCartLocalStorage(state.cart, state.total);
         return;
       }
 
@@ -32,6 +50,9 @@ const cartSlice = createSlice({
       if (!foundCartProduct) {
         state.cart.push(action.payload);
         state.total = state.total + action.payload.totalPrice;
+
+        // sets localstorage of current cart items and cart total amount
+        setCartLocalStorage(state.cart, state.total);
         return;
       }
 
@@ -44,6 +65,9 @@ const cartSlice = createSlice({
       foundCartProduct.totalPrice =
         foundCartProduct.quantity * foundCartProduct.price;
       state.total = state.cart.reduce(calculateTotal, 0);
+
+      // sets localstorage of current cart items and cart total amount
+      setCartLocalStorage(state.cart, state.total);
     },
 
     deleteCartItem(state, action) {
@@ -61,6 +85,9 @@ const cartSlice = createSlice({
       });
       state.cart = filteredCartItem;
       state.total = state.cart.reduce(calculateTotal, 0);
+
+      // sets localstorage of current cart items and cart total amount
+      setCartLocalStorage(state.cart, state.total);
     },
   },
 });
