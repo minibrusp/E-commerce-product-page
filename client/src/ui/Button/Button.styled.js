@@ -127,3 +127,11 @@ export const StyledButton = styled.button`
 
   ${(props) => buttonVariant[props.$variant]}
 `;
+
+export const StyledButtonRow = styled.span`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+`;

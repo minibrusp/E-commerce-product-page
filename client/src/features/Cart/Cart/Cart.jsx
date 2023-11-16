@@ -10,9 +10,19 @@ import CartItem from '../CartItem/';
 import useCart from '../useCart';
 
 function Cart() {
-  const { cart, checkoutCart } = useCart();
+  const {
+    cart,
+    checkoutCart,
+    resetCart,
+    isLoading: cartLoading,
+    setIsLoading: setCartLoading,
+  } = useCart();
 
-  const checkout = async () => await checkoutCart();
+  const checkout = async () => {
+    await checkoutCart();
+    resetCart();
+    setCartLoading(false);
+  };
 
   return (
     <StyledCart>
@@ -25,10 +35,12 @@ function Cart() {
             ))}
 
             <Button
-              text='Checkout'
+              text={cartLoading ? 'loading' : 'Checkout'}
               variant='checkout'
               title='checkout cart'
               onClick={checkout}
+              disabled={cartLoading}
+              isLoading={cartLoading}
             />
           </>
         ) : (

@@ -5,5 +5,5 @@ export const StyledAppLayout = styled.main`
 `;
 
 export const Section = styled.section`
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 `;
