@@ -4,6 +4,19 @@
 
 ## Welcome! 👋
 
+### Design
+
+- #### Desktop Design
+
+  | Home                                        | Lightbox                                          | Cart Filled                                              | Cart Empty                                             |
+  | ------------------------------------------- | ------------------------------------------------- | -------------------------------------------------------- | ------------------------------------------------------ |
+  | ![Home Design](./design/desktop-design.jpg) | ![Lightbox](./design/desktop-design-lightbox.jpg) | ![Cart Filled](./design/active-states-basket-filled.jpg) | ![Cart Empty](./design/active-states-basket-empty.jpg) |
+
+- #### Mobile Design
+  | Home                                       | Menu                              | Cart Filled                                              | Cart Empty                                             |
+  | ------------------------------------------ | --------------------------------- | -------------------------------------------------------- | ------------------------------------------------------ |
+  | ![Home Design](./design/mobile-design.jpg) | ![Menu](./design/mobile-menu.jpg) | ![Cart Filled](./design/mobile-design-basket-filled.jpg) | ![Cart Empty](./design/mobile-design-basket-empty.jpg) |
+
 ### Planning
 
 1# - BUSINESS REQUIREMENTS
@@ -18,9 +31,9 @@
 
 - Feature Categories
 
-  1. Menu / Shoe(Since only one)
+  1. Product
   2. Cart
-  3. Lightbox
+  3. Gallery
 
 - Necessary Pages
   1. Homepage (in the design it is a 1 pager app)
@@ -29,15 +42,15 @@
 
 - Feature Categories
 
-  1. Menu / Shoe(Since only one)
+  1. Product
   2. Cart
-  3. Lightbox
+  3. Gallery
 
 - Types of state
 
-  1. Menu / Shoe -> Global UI state
+  1. Product -> Global UI state
   2. Cart -> Global UI State
-  3. LightBox -> Global UI State
+  3. Gallery -> Global UI State
 
 - Technology Decisions
   - Routing - react-router-dom - so i can use useSearchParams hook
@@ -46,8 +59,33 @@
     - Redux Toolkit (RTK) - Wanna show case my RTK skills
     - URL Params - using react-router-dom's useSearchParams i can share the app's current state to another user.
 
-#
+---
 
-https://e-commerce-product-page-flame.vercel.app/
+## Extra Features
 
-https://e-commerce-product-page-yvby-frontend.vercel.app/
+- #### Added Stripe payment
+  - can use test card 4242 4242 4242
+- #### Cart is Saved on Local Storage
+  - refreshing the page wont let dissapear
+- #### Share gallery state to other people
+  - users can share the homepage with the current position of selected image.
+
+## Built with
+
+- ### React
+- ### React Router Dom
+- ### Styled Components
+- ### Vite
+- ### Redux Toolkit
+- ### Mobile-first workflow
+- ### Stripe
+- ### NodeJS
+- ### Express
+
+---
+
+## Links
+
+- ### Live Site URL : [here](https://e-commerce-product-page-yvby-frontend.vercel.app/)
+- ### Backend URL for Notes : [here](https://e-commerce-product-page-flame.vercel.app/)
+- ### Frontend Mentor(FEM) Solution URL : [here]()
