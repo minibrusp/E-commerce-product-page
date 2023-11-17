@@ -47,3 +47,7 @@
     - URL Params - using react-router-dom's useSearchParams i can share the app's current state to another user.
 
 #
+
+https://e-commerce-product-page-flame.vercel.app/
+
+https://e-commerce-product-page-yvby-frontend.vercel.app/
