@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import SuccessImg from '../assets/images/success.png';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import useCart from '../features/Cart/useCart';
 
 const StyledSuccessPage = styled.div`
   display: flex;
@@ -48,16 +50,32 @@ const StyledLink = styled(Link)`
   }
 `;
 
+const StyledEmpty = styled.div`
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export default function Success() {
-  return (
-    <StyledSuccessPage>
-      <StyledBanner src={SuccessImg} alt='success banner' />
-      <StyledHeading>Your Payment is Successful</StyledHeading>
-      <StyledText>
-        Thank you for purchasing from our store. Your order ID is{' '}
-        <strong>#1011222</strong>.
-      </StyledText>
-      <StyledLink to='/'>Continue Shopping</StyledLink>
-    </StyledSuccessPage>
-  );
+  const { getSession, status, customer, resetCart } = useCart();
+
+  useEffect(() => {
+    getSession();
+    resetCart();
+  }, []);
+
+  if (status !== 'complete') return <StyledEmpty>loading</StyledEmpty>;
+
+  if (status === 'complete')
+    return (
+      <StyledSuccessPage>
+        <StyledBanner src={SuccessImg} alt='success banner' />
+        <StyledHeading>Your Payment is Successful</StyledHeading>
+        <StyledText>
+          Hello {customer.name} , Thank you for purchasing from our store.
+        </StyledText>
+        <StyledLink to='/'>Continue Shopping</StyledLink>
+      </StyledSuccessPage>
+    );
 }

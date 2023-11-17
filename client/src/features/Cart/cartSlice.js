@@ -2,9 +2,11 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { calculateTotal } from '../../utils/helpers';
 
-const setCartLocalStorage = (cartItems, cartTotalAmount) => {
+const setCartLocalStorage = (cartItems, cartTotalAmount, cartSession) => {
   localStorage.setItem('cartItems', JSON.stringify(cartItems));
   localStorage.setItem('cartTotalAmount', JSON.stringify(cartTotalAmount));
+  localStorage.setItem('cartTotalAmount', JSON.stringify(cartTotalAmount));
+  localStorage.setItem('cartSession', JSON.stringify(cartSession));
 };
 
 const cartItems =
@@ -17,9 +19,15 @@ const cartTotalAmount =
     ? JSON.parse(localStorage.getItem('cartTotalAmount'))
     : 0;
 
+const cartSession =
+  localStorage.getItem('cartSession') !== null
+    ? JSON.parse(localStorage.getItem('cartSession'))
+    : '';
+
 const initialState = {
   cart: cartItems,
   total: cartTotalAmount,
+  session: cartSession,
 };
 
 // cart/addCart
@@ -35,7 +43,7 @@ const cartSlice = createSlice({
         state.total = action.payload.totalPrice;
 
         // sets localstorage of current cart items and cart total amount
-        setCartLocalStorage(state.cart, state.total);
+        setCartLocalStorage(state.cart, state.total, state.session);
         return;
       }
 
@@ -52,7 +60,7 @@ const cartSlice = createSlice({
         state.total = state.total + action.payload.totalPrice;
 
         // sets localstorage of current cart items and cart total amount
-        setCartLocalStorage(state.cart, state.total);
+        setCartLocalStorage(state.cart, state.total, state.session);
         return;
       }
 
@@ -67,7 +75,7 @@ const cartSlice = createSlice({
       state.total = state.cart.reduce(calculateTotal, 0);
 
       // sets localstorage of current cart items and cart total amount
-      setCartLocalStorage(state.cart, state.total);
+      setCartLocalStorage(state.cart, state.total, state.session);
     },
 
     deleteCartItem(state, action) {
@@ -87,18 +95,27 @@ const cartSlice = createSlice({
       state.total = state.cart.reduce(calculateTotal, 0);
 
       // sets localstorage of current cart items and cart total amount
-      setCartLocalStorage(state.cart, state.total);
+      setCartLocalStorage(state.cart, state.total, state.session);
+    },
+
+    setSession(state, action) {
+      state.session = action.payload;
+
+      // sets localstorage of current cart items and cart total amount and session
+      setCartLocalStorage(state.cart, state.total, state.session);
     },
 
     clearCart(state) {
       state.cart = [];
       state.total = 0;
+      state.cartSession = '';
 
       // sets localstorage of current cart items and cart total amount
-      setCartLocalStorage(state.cart, state.total);
+      setCartLocalStorage(state.cart, state.total, state.session);
     },
   },
 });
 
-export const { addCartItem, deleteCartItem, clearCart } = cartSlice.actions;
+export const { addCartItem, deleteCartItem, clearCart, setSession } =
+  cartSlice.actions;
 export default cartSlice.reducer;

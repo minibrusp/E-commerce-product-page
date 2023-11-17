@@ -13,14 +13,12 @@ function Cart() {
   const {
     cart,
     checkoutCart,
-    resetCart,
     isLoading: cartLoading,
     setIsLoading: setCartLoading,
   } = useCart();
 
   const checkout = async () => {
     await checkoutCart();
-    resetCart();
     setCartLoading(false);
   };
 

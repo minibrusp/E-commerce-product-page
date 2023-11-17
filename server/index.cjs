@@ -1,9 +1,7 @@
-import 'dotenv/config.js';
-import express from 'express';
-import cors from 'cors';
-import Stripe from 'stripe';
-
-const stripe = new Stripe(process.env.STRIPE_SK);
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
+const stripe = require('stripe')(process.env.STRIPE_SK);
 
 const PORT = process.env.PORT || 5050;
 const app = express();
@@ -41,12 +39,34 @@ app.post('/checkout', async (req, res) => {
   res.send(
     JSON.stringify({
       url: session.url,
+      session: session,
     })
   );
+});
+
+app.post('/retrieve', async (req, res) => {
+  // console.log(req.body.id);
+
+  try {
+    const session = await stripe.checkout.sessions.retrieve(req.body.id);
+
+    res.send(
+      JSON.stringify({
+        customer: session.customer_details,
+        status: session.status,
+      })
+    );
+  } catch (error) {
+    res.send(
+      JSON.stringify({
+        error: error,
+      })
+    );
+  }
 });
 
 app.listen(PORT, function () {
   console.log(`Listening on port ${PORT} `);
 });
 
-export default app;
+module.exports = app;
